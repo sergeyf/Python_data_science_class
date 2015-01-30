@@ -147,3 +147,17 @@ print(x,y,x - y,sep='\n\n') # subtract y from each row of x!
 
 
 
+
+# masking fancy indexing
+x = np.random.randint(low=0,high=10,size=10)
+flag = (x < 5)
+print(flag)
+print(np.where(flag))
+x_subset = x[flag]
+print(x,x_subset,sep='\n')
+
+
+
+
+# learn more here:
+# http://www.astro.washington.edu/users/vanderplas/Astr599/notebooks/11_EfficientNumpy.html
