@@ -13,8 +13,9 @@ upperDict = {}
 
 # INSERT CODE INITIALIZING upperDict HERE
 
+
 # Step 1: importing the novel and updating our dictionaries
-file_name = 'data/ulysses.txt'
+file_name = 'data/ulysses.txt' # put your local path here
 f = open(file_name,'r')
 
 for line in f: # what wonderful syntax!

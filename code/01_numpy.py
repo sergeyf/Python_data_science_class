@@ -1,6 +1,7 @@
 import numpy as np
 
 N = 10000
+
 # generate an array with N random numbers
 x = np.random.random(N)
 # add 1 to each element of x
@@ -25,7 +26,7 @@ print(y_plus_1)
 
 
 # now we can use ipython to get times for both with %%timeit
-# about the same speed, but numpy code is much more compact
+
 
 
 
@@ -33,39 +34,63 @@ print(y_plus_1)
 
 
 # what else can we do with numpy arrays? lots!
-x = np.random.randint(low=0,high=10,size=10)
+N = 10
+x = np.random.randint(low=0,high=10,size=N)
 print(x)
-print(np.sin(x))
-print(np.mean(x),np.median(x),np.std(x),np.var(x))
-print(np.max(x),np.argmax(x))
-print(np.maximum(0.9,x))
-print(x > 0.5)
-print(x[:N/2] / x[N/2:])
-print(np.add.accumulate(x))
-print(np.multiply.accumulate(x))
+
+print(np.sin(x)) # take sin of every element
+
+print(np.mean(x),np.median(x),np.var(x)) # summary statistics
+
+print(np.max(x),np.argmax(x)) # x[np.argmax(x)] == np.max(x)
+
+print(np.maximum(5,x)) # elementwise maximum
+
+y = np.random.randint(low=0,high=10,size=N)
+
+print('x=',x,'y=',y,'max of each element:',np.maximum(x,y),sep='\n')
+
+print(x > 5) # elementwise boolean comparisons against 5
+
+print(x > y) # ditto, but x[i] is compared y[i] for each i
+
+print(x[:N/2] / x[N/2:]) # first half of x divided by the second half
+
+print(np.add.accumulate(x)) # cumulative sum, same as np.cumsum()
+
+print(np.multiply.accumulate(x)) # cumulative product, same as np.cumprod()
 
 
 
 
-# make a times-table
-x = np.arange(1, 10) # kind of like range(1,10), but a numpy array
-print(np.multiply.outer(x, x))
+
+# more examples
+x = np.arange(1, 10) # like range(1,10), but a numpy array
+print(np.multiply.outer(x, x)) 
+
+
 
 
 
 
 # aggregating over matrices
-x = np.random.rand(3, 5) # array of arrays
-print(x)
-print(np.mean(x))
-print(np.mean(x,axis=0))
-print(np.mean(x,axis=1))
+X = np.random.rand(3, 5) # array of arrays
+print(X)
+print(np.mean(X))
+
+print(np.mean(X,axis=0))
+
+print(np.mean(X,axis=1))
+
 # we can also use the method version:
-print(x.mean(axis=0))
+print(X.mean(axis=0))
+
 # somewhat confusing, as this doesn't work:
-print(x.median(axis=0))
+print(X.median(axis=0))
+
 # but this does:
-print(np.median(x,axis=0))
+print(np.median(X,axis=0))
+
 
 
 
@@ -83,7 +108,9 @@ def normalize(X):
     
 # test code
 X = np.random.randint(0,high=100,size=(10,3))
-print(normalize(X))
+X_normalized = normalize(X)
+print(X_normalized.mean(axis=0),X_normalized.std(axis=0))
+
 
 
 
@@ -105,12 +132,13 @@ print(np.dot(Yinv,Y))
 
 
 
+
+
+
 # broadcasting
 print(x + 1) # adds 1 to every element
 y = np.random.randint(low=0,high=10,size=(1,3))
 print(x,y,x - y,sep='\n\n') # subtract y from each row of x!
-
-
 
 # but this won't work because the sizes don't match up
 y = np.random.randint(low=0,high=10,size=(3,1))
