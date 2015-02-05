@@ -43,30 +43,19 @@ N = 1000
 # allocate the location arrays
 locsX = np.zeros(N+1) # east and west
 locsY = np.zeros(N+1) # north and south
-#locsX = [0]*(N+1)
+#locsX = [0]*(N+1) # same as above but without numpy
 #locsY = [0]*(N+1)
 
 # take the steps
 for i in range(1,N+1):
     # first, pick a direction randomly
-    direction = np.random.multinomial(n=1,pvals=p)  
+    direction = # INSERT STUFF HERE 
     # next pick a step size randomly
-    stepSize = np.random.uniform(low=u[0],high=u[1])
+    stepSize = # INSERT STUFF HERE
     
     # now we move
-    if direction[0] == 1: # if north
-        locsY[i] = locsY[i-1] + stepSize
-        locsX[i] = locsX[i-1]
-    elif direction[1] == 1: # if east
-        locsY[i] = locsY[i-1]
-        locsX[i] = locsX[i-1] + stepSize
-    elif direction[2] == 1: # if south
-        locsY[i] = locsY[i-1] - stepSize
-        locsX[i] = locsX[i-1]
-    elif direction[3] == 1: # if west
-        locsY[i] = locsY[i-1]
-        locsX[i] = locsX[i-1] - stepSize  
-        
+    # INSERT STUFF HERE    
+    
 # plot the result
 plt.plot(locsX,locsY)
 plt.xlabel('West to East')

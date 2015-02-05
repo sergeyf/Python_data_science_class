@@ -37,12 +37,12 @@ t.append(2)
 # all we can do is concatenate tuples together:
 print( c + t )
 
+# and they have other uses, but more on that later...
 
 
 
 
-
-# sets
+# sets (like in math)
 s1 = set([1,2,3,4,1])
 print(s1) # only keeps one of each!
 
@@ -195,25 +195,31 @@ print(D)
 
 
 
+# and, we can only use hashable items as keys
+D[[1,2]] = 4 # nope!
+D[(1,2)] = 4 # works
 
 
 
-# finally - list comprehensions (by example)
 
-# Example: imagine you want a list of all numbers 
+
+
+#  list comprehensions \
+
+# example: imagine you want a list of all numbers 
 # from 0 to 100 which are divisible by 7 or 11
 
-# normal way to do it:
+# the long way to do it:
 L = [] # initialize list
-for i in range(100):
-    if (i % 7 == 0) or (i % 11 == 0):
-        L.append(i)
+for i in range(100): # go through each number
+    if (i % 7 == 0) or (i % 11 == 0): # check if it works
+        L.append(i) # if so, append
         
 print(L)
 
 # with list comprehensions:
 L = [i for i in range(100) if (i % 7 == 0) or (i % 11 == 0)]
-
+print(L)
 
 
 
@@ -262,13 +268,8 @@ print( sorted(items, key=getSecondElement) )
 
 
 # here is a more compact version, with a lambda function:
-print( sorted(items, key=lambda x: x[1] ))
-
-
-
-
-# lambda functions are for quick, simple functions:
 getSecondElementLambda = lambda x: x[1] 
+print( sorted(items, key=getSecondElementLambda) )
 
-# this does the same thing as "getSecondElement"
-# look up lambda functions later
+
+# lambda functions are for quick, simple functions

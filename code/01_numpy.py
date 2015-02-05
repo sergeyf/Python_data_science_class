@@ -4,8 +4,7 @@ N = 10000
 
 # generate an array with N random numbers
 x = np.random.random(N)
-# add 1 to each element of x
-x_plus_1 = x + 1
+x_plus_1 = x + 1 # add 1 to each element of x
 
 print(x)
 print(x_plus_1)  
@@ -26,8 +25,6 @@ print(y_plus_1)
 
 
 # now we can use ipython to get times for both with %%timeit
-
-
 
 
 
@@ -76,13 +73,17 @@ print(np.multiply.outer(x, x))
 # aggregating over matrices
 X = np.random.rand(3, 5) # array of arrays
 print(X)
+
+# get mean of whole matrix
 print(np.mean(X))
 
+# of the columns
 print(np.mean(X,axis=0))
 
+# of the rows
 print(np.mean(X,axis=1))
 
-# we can also use the method version:
+# we can also use the class method version:
 print(X.mean(axis=0))
 
 # somewhat confusing, as this doesn't work:

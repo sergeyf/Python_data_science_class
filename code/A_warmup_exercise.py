@@ -4,40 +4,35 @@
 # Step 1: define the relevant dictionaries and initialize them
 lowerKeys = 'abcdefghijklmnopqrstuvwxyz'
 lowerDict = {}
-for key in lowerKeys:
-    lowerDict[key] = 0 # initialize at 0 count
+
+# INSERT CODE INITIALIZING lowerDict HERE
+
 
 upperKeys = lowerKeys.upper() # no need to retype it all
 upperDict = {}
-for key in upperKeys:
-    upperDict[key] = 0
-        
+
+# INSERT CODE INITIALIZING upperDict HERE
+
 
 # Step 1: importing the novel and updating our dictionaries
-file_name = 'data/ulysses.txt'
+file_name = 'data/ulysses.txt' # put your local path here
 f = open(file_name,'r')
 
 for line in f: # what wonderful syntax!
-    for letter in line:
-        if letter in lowerKeys:
-            lowerDict[letter] += 1
-        elif letter in upperKeys:
-            upperDict[letter] += 1
-            
+    # INSERT CODE UPDATING THE DICTIONARIES HERE
+     
 f.close() # don't forget to close it!
 
 
 # Step 2: it would be good to have normalized versions
 # of each dictionary so we can compare
 lowerDictNormed = lowerDict.copy()
-lowerTotal = sum(lowerDict.values()) # total number of letters
-for key in lowerDictNormed.keys():
-    lowerDictNormed[key] /= lowerTotal # dividing by the total
+
+# INSERT CODE TO NORMALIZE lowerDictNormed HERE
     
 upperDictNormed = upperDict.copy()
-upperTotal = sum(upperDict.values()) # total number of letters
-for key in upperDictNormed.keys():
-    upperDictNormed[key] /= upperTotal # dividing by the total
+
+# INSERT CODE TO NORMALIZE upperDictNormed HERE
     
 # Step 3: print the values alongside each other using the 
 for key in lowerKeys:
