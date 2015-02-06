@@ -128,7 +128,8 @@ print(x,x.T,sep='\n\n') # transpose!
 Y = np.dot(x,x.T) # matrix multiply
 print(Y) 
 
-Yinv = np.linalg.inv(Y) # more advanced linear algebra is in linalg
+# more advanced linear algebra is in linalg
+Yinv = np.linalg.inv(Y) 
 print(np.dot(Yinv,Y))
 
 
@@ -138,6 +139,8 @@ print(np.dot(Yinv,Y))
 
 # broadcasting
 print(x + 1) # adds 1 to every element
+
+# subtract y from every row
 y = np.random.randint(low=0,high=10,size=(1,3))
 print(x,y,x - y,sep='\n\n') # subtract y from each row of x!
 
@@ -149,11 +152,14 @@ print(x,y,x - y,sep='\n\n') # subtract y from each row of x!
 
 
 
-# masking fancy indexing
+# masking, fancy indexing
 x = np.random.randint(low=0,high=10,size=10)
 flag = (x < 5)
+# flag is a boolean
 print(flag)
+# np.where tells you where flag is true
 print(np.where(flag))
+# we can use flag to subset x
 x_subset = x[flag]
 print(x,x_subset,sep='\n')
 

@@ -82,7 +82,7 @@ test_result(p_value)
 
 
 
-# other aspects of scipy we don't have time for:
+# other submodules in scipy we don't have time for:
 '''
 Fourier Transforms (scipy.fftpack)
 Signal Processing (scipy.signal)

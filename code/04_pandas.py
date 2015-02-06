@@ -143,7 +143,7 @@ print( np.log(weekly['southbound']) )
 
 
 # we can also do numpy style indexing
-print( weekly['southbound'][weekly['southbound'] > 14000] )
+print( weekly['southbound'][ weekly['southbound'] > 14000 ] )
 
 # finding nulls
 print( hourly[hourly['southbound'].isnull()] )

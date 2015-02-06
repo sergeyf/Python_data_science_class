@@ -46,6 +46,9 @@ plt.scatter(x1,x2,c=y,s=50,cmap=plt.cm.jet)
 # hard to label...
 
 
+
+
+
 # and now, immediate and total machine learning
 # we create an instance of SVM and fit out data. 
 # We do not scale our data since we want to plot the support vectors
@@ -174,7 +177,7 @@ plt.show()
 
 # interesting!
 # but could this be an artifact of our random split?
-# maybe other random splits are better?
+# maybe other random splits are different?
 # only one way to find out...
 numSplits = 10
 kVec = [1,3,5,7,9,11,13,15]
@@ -203,6 +206,8 @@ plt.xlabel('k in kNN')
 plt.ylabel('Test Accuracy')
 plt.ylim([np.min(np.mean(acc,axis=1))-0.05, 1.025])
 plt.show()
+
+
 
 
 

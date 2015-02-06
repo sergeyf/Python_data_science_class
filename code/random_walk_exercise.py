@@ -25,7 +25,7 @@
  Start your walker at (x=0,y=0) 
  
  Functions you should look up and use:
- - np.random.multinomial() <- this has a funky output!
+ - np.random.multinomial() <- this has a funky output! take your time here.
  - np.random.uniform() <- a more expected output
  - np.zeros() <- not required but a good idea
 '''
