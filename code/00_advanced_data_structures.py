@@ -211,14 +211,14 @@ D[(1,2)] = 4 # works
 
 # the long way to do it:
 L = [] # initialize list
-for i in range(100): # go through each number
+for i in range(101): # go through each number
     if (i % 7 == 0) or (i % 11 == 0): # check if it works
         L.append(i) # if so, append
         
 print(L)
 
 # with list comprehensions:
-L = [i for i in range(100) if (i % 7 == 0) or (i % 11 == 0)]
+L = [i**2   for i in range(101)      if (i % 7 == 0) or (i % 11 == 0)]
 print(L)
 
 
@@ -261,6 +261,7 @@ print( sorted(items) )
 # so let's write a function that does that:
 def getSecondElement(x):
     return x[1]
+    
 
 # and now we can provide that function as our "key"
 print( sorted(items, key=getSecondElement) ) 
@@ -272,4 +273,5 @@ getSecondElementLambda = lambda x: x[1]
 print( sorted(items, key=getSecondElementLambda) )
 
 
+print( sorted(items, key=lambda x: x[1] ) )
 # lambda functions are for quick, simple functions
