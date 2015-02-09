@@ -11,7 +11,7 @@ upperKeys = lowerKeys.upper() # no need to retype it all
 upperDict = {}
 for key in upperKeys:
     upperDict[key] = 0
-        
+           
 
 # Step 1: importing the novel and updating our dictionaries
 file_name = 'data/ulysses.txt'

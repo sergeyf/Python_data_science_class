@@ -17,7 +17,7 @@
 # hint: use broadcasting
 # hint: use np.argsort
 
-import  numpy as np
+import numpy as np
 
 # Euclidean distance function
 def euclideanDist(X1,X2):

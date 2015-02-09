@@ -124,7 +124,7 @@ kNN.fit(X,y)
 print( kNN.predict(X[2]) )
 
 # and see how they stack against the true labels
-print( np.mean(kNN.predict(X) == y) )
+print( np.mean( kNN.predict(X) == y ) )
 
 # but we can't evaluate our fit
 # on the same data we trained on
@@ -133,7 +133,7 @@ perm = np.random.permutation(nSamples)
 print(perm)
 
 # so the first half of these permuted indices are training
-nHalf = nSamples//4 # integer division
+nHalf = nSamples//2 # integer division
 permTrain = perm[:nHalf] # first half
 permTest = perm[nHalf:] # second half
 print( sorted(permTrain) )
@@ -155,9 +155,24 @@ print( np.mean(kNN.predict(Xtest) == ytest) )
 
 
 
-# 93.3% accuracy. pretty good, but how does it depend
+# pretty good, but how does it depend
 # on n_neighbors?
 # let's check 
+perm = np.random.permutation(nSamples)
+print(perm)
+
+# so the first half of these permuted indices are training
+nHalf = nSamples//2 # integer division
+permTrain = perm[:nHalf] # first half
+permTest = perm[nHalf:] # second half
+
+
+# let's split up X and y now
+Xtrain = X[permTrain,:]
+ytrain = y[permTrain]
+Xtest = X[permTest,:]
+ytest = y[permTest]
+
 kVec = [1,3,5,7,9,11,13,15]
 acc = np.zeros(len(kVec))
 for i,k in enumerate(kVec):
@@ -293,12 +308,19 @@ plt.show()
 # why?
 
 # import it here
-# regr = ??????
+import pandas.pyplot as plt
+from sklearn.ensemble import RandomForestRegressor
+
+regr = RandomForestRegressor(n_estimators=100,max_depth=4)
 regr.fit(X, y)
 plt.scatter(X, y,label='data')
-plt.plot(X, regr.predict(X),label='linear fit')
+plt.plot(X, regr.predict(X),label='Random Forest fit')
 plt.legend()
 plt.show()
+
+
+
+
 
 
 
@@ -378,7 +400,8 @@ plt.scatter(X[:,0],X[:,1],s=50,alpha=0.8,c=km.labels_,cmap=plt.cm.Paired)
 # Mini-Assignment
 # use SpectralClustering to deal with X
 # make sure to try different settings of "affinity"
-sc = # INSERT STUFF HERE
+from sklearn.cluster import SpectralClustering
+sc = SpectralClustering(n_clusters=2)
 sc.fit(X)
 plt.scatter(X[:,0],X[:,1],s=50,alpha=0.8,c=sc.labels_,cmap=plt.cm.Paired)
 

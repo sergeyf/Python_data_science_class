@@ -32,8 +32,8 @@
 
 import numpy as np
 import matplotlib.pyplot as plt
-import seaborn as sns
-sns.set_context("poster") # makes thicker lines
+#import seaborn as sns
+#sns.set_context("poster") # makes thicker lines
 
 # example inputs to develop the code
 p = [0.25,0.25,0.25,0.25]

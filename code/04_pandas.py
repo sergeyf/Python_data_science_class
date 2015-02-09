@@ -56,7 +56,7 @@ print( type(daily) )
 print( type(daily['total']) )
 
 
-# we can make panda data from scratch
+# we can make pandas data from scratch
 ssn = ['234-65-9080','167-65-9080','987-65-9080','456-65-9080','234-65-9080']
 first = ['g.','y.','f.','w.','p.']
 last = ['arumbo','gralph','ungde','uyino','phin']
@@ -85,7 +85,7 @@ print(maxAge)
 
 
 # oldest person?
-print( df[df['age'] == maxAge] )
+print( df[ df['age'] == df['age'].max() ] )
 
 
 
@@ -105,13 +105,13 @@ print( weekly.values )
 print( weekly['northbound'] )
 
 # how to reference multiple columns
-print( weekly[['northbound','southbound']] )
+print( weekly[ ['northbound','southbound'] ] )
 
 # how to reference a row by index key
 print( weekly.loc['2012-12-30'] )
 
 # how to reference multiple rows by index key
-print( weekly.loc[[weekly.index[0], weekly.index[1]],:] )
+print( weekly.loc[ [weekly.index[0], weekly.index[1]],:] )
 print( weekly.loc[pd.to_datetime(['2012-12-30','2012-12-30'])] )
 
 # how to referene a row by numerical index
@@ -123,8 +123,8 @@ print( weekly.loc['2012-12-30'] ['northbound'] )
 print( weekly.loc['2012-12-30','northbound'] )
 
 # we can also do this:
-print( weekly['2012'] )
-print( weekly['2012-12'] )
+print( weekly.loc['2012'] )
+print( weekly.loc['2012-12'] )
 
 # but not this:
 print( weekly['2013-12-30'] )
@@ -146,7 +146,7 @@ print( np.log(weekly['southbound']) )
 print( weekly['southbound'][ weekly['southbound'] > 14000 ] )
 
 # finding nulls
-print( hourly[hourly['southbound'].isnull()] )
+print( hourly[ hourly['southbound'].isnull() ] )
 
 # getting a sense for the data
 print( hourly.describe() )
@@ -179,7 +179,7 @@ and weeks 2, 4, 8, 12, 16 after treatment began
 cdystonia = pd.read_csv("data/cdystonia.csv", index_col=None)
 
 # we can look at one patient at a time like this:
-print( cdystonia.stack().head() )
+print( cdystonia.stack() )
 
 
 
@@ -225,7 +225,7 @@ print( cdystonia_grouped.get_group(4) )
  
    
 # return median of each column for each group
-print( cdystonia_grouped.agg(np.median).head() )
+print( cdystonia_grouped.agg( np.median ).head() )
 # Note that the "treat" and "sex" variables missing.
 # Can't take means of strings!
 
@@ -244,7 +244,7 @@ print( cdystonia.groupby(['treat','week']).mean()['twstrs'] )
 
 
 # we can get a subset of the data
-print( cdystonia.query("(obs == 6) & (age < 30) & (sex == 'F')" ) )
+print( cdystonia.query("(age < 30) & (sex == 'F')" ) )
 
 
 

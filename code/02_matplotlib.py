@@ -20,7 +20,8 @@ plt.rcParams['figure.figsize'] = (10.0, 5.0)
 
 # now replot, and add axis labels
 plt.xlabel('x')
-plt.ylabel('f(x)')
+plt.ylabel('f(x) = sin(x)')
+plt.title("My First Function")
 plt.plot(x, y)
 plt.show()
 
@@ -40,7 +41,7 @@ plt.show()
 
 
 # plotting some points in red
-plt.plot([1,2,3,4], [1,4,9,16], 'rH')
+plt.plot([1,2,3,4], [1,4,9,16], 'k:')
 plt.axis([0, 5, 0, 20])
 plt.show()
 
@@ -48,7 +49,8 @@ plt.show()
 
 # another example
 x = np.arange(0, np.pi, 0.1)
-plt.plot(x, x, 'r--', x, x**2, 'bs', x, x**3, 'g^')
+plt.plot(x, x, 'r--', x, x**3, 'g^')
+plt.plot(x,x**2,'bs')
 plt.show()
 
 

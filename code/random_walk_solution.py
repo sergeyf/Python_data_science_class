@@ -51,7 +51,7 @@ for i in range(1,N+1):
     # first, pick a direction randomly
     direction = np.random.multinomial(n=1,pvals=p)  
     # next pick a step size randomly
-    stepSize = np.random.uniform(low=u[0],high=u[1])
+    stepSize = np.random.gumbel()
     
     # now we move
     if direction[0] == 1: # if north

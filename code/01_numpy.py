@@ -103,7 +103,8 @@ print(np.median(X,axis=0))
 # that is, its columns have zero mean and standard deviation 1
 
 def normalize(X):
-    # first, demean X
+    X_demeaned = X - np.mean(X,axis=0)
+    X_normalized = X_demeaned/np.std(X,axis=0)
     # then, make sure each column has standard deviation 1
     return X_normalized
     
